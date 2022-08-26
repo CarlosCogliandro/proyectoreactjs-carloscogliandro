@@ -51,7 +51,9 @@
 .navbar-link{
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
   list-style: none;
+
 }
 
 .nav-link{
@@ -60,3 +62,6 @@
   margin-left: 20px;
 }
 
+.carrito{
+  width: 50px;
+}

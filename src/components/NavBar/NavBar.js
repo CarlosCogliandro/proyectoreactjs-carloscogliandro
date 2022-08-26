@@ -1,4 +1,5 @@
-import logo from '../logo.svg'
+import logo from '../../logo.svg'
+import CartWidget from '../CartWidget/CartWidget';
 
 
 const NavBar = () =>{
@@ -15,7 +16,7 @@ const NavBar = () =>{
                 </ul>
             </div>
 
-            <button id="boton-carrito">  <span id="contadorCarrito">0</span></button>
+            <CartWidget/>
 
         </div>
     )       
