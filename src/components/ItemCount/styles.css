@@ -1,0 +1,15 @@
+.agregar{
+    display: flex;  
+    flex-direction: row;
+    align-items: center;
+}
+
+.stock{
+    display: flex;
+    flex-direction: column;
+    line-height: 1px
+}
+
+.btn{
+    margin: 10px;
+}

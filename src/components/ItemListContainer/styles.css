@@ -1,0 +1,21 @@
+.tarjetas{
+  display: flex;
+  flex-direction: row;
+  padding-top: 50px;
+}
+
+.cards{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 200px;
+    height: auto;
+    border: 1px solid red;
+    margin: 10px;
+    padding-bottom: 10px;
+  }
+  
+  .items{
+    width: 100px;
+  }
