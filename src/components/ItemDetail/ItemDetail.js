@@ -1,15 +1,16 @@
+import './styles.css'
 import Item from "../Item/Item";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 
-const ItemList = ({lista}) => {
+const ItemDetail = ({lista}) => {
 
     return (
-        <div className="tarjetas">{
+        <div className="itemdetail">{
             lista.map((product) => (
-                <Link 
+                <Link
                     key={product.id} 
-                    to={`/detail/${product.id}`} 
+                    to={'/detail/' + product.id} 
                     style={{ textDecoration: 'none', color: 'black'}}
                 >
                     <Item 
@@ -25,4 +26,4 @@ const ItemList = ({lista}) => {
     );
 };
 
-export default ItemList
+export default ItemDetail;

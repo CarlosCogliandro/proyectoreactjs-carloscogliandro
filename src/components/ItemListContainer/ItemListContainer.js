@@ -8,7 +8,7 @@ import './styles.css'
 
 // import ItemCount from '../ItemCount/ItemCount'
 
-import data from "../ListaDeProductos";
+import data from "../mockData";
 import ItemList from '../ItemList/ItemList'
 import { useEffect, useState } from 'react'
 
