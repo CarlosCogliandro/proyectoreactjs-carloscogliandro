@@ -72,9 +72,9 @@ const data = [{
 },
 {
     id: '8',
-    tittle: 'Joystick Playstation 5',
+    tittle: 'Joystick PS 5',
     price: 27599,
-    image: 'https://http2.mlstatic.com/D_NQ_NP_2X_991801-MLA44330912940_122020-F.webp',
+    image: 'https://th.bing.com/th/id/R.622400c78d3a6cd5f2e435917a08db58?rik=3%2bIdWRfkm1xRdw&pid=ImgRaw&r=0',
     parrafo: 'Joystick Inalambrico Sony Playstation 5 Dualsense Ps5 Nuevo',
     categoria: 'entretenimiento',
     stock: 17,

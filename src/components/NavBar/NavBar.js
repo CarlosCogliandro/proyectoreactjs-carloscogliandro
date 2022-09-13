@@ -6,13 +6,13 @@ import { NavLink } from 'react-router-dom';
 const NavBar = () =>{
     return (
         <div className='navbar-container'>
-            
+
             <NavLink to={'/'}><a href="#"><img src={logo} className="navbar-logo" alt="logo"/></a></NavLink>
             
             <div>
                 <ul className='navbar-link'>
-                
-                <li className="nav-item"> 
+
+                    <li className="nav-item"> 
                         <NavLink to={'/'} className={({isActive}) => isActive ? 'activo' : 'noActivo' }>Home</NavLink>                    
                     </li>
 

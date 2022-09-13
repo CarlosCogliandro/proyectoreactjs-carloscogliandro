@@ -13,7 +13,7 @@ const Item = ({ tittle, image, price, id }) => {
 
         <div>
           <h2>{tittle}</h2>
-          <h3>${price}</h3>
+          <h4>${price}</h4>
           <Link to={`/detail/${id}`} style={{ textDecoration: 'none', color: 'black'}}>
             <button className="btn-detalles">Detalles</button>
           </Link>
