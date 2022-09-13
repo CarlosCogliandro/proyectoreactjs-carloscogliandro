@@ -1,0 +1,31 @@
+ .itemdetail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.img-detalle{
+    width: 350px;
+}
+
+.detalles{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.boton-agregar{
+    background-color: rgb(82, 94, 187);
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    border: 1px solid rgb(81, 0, 255);
+    padding: 8px;
+    transition: 0.3s;
+}
+
+.boton-agregar:hover{
+    background-color: rgb(3, 3, 179);
+}

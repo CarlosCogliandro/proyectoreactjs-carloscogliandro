@@ -1,4 +1,3 @@
-import './styles.css'
 import data from "../mockData";
 import ItemList from '../ItemList/ItemList'
 import { useEffect, useState } from 'react'
@@ -20,7 +19,7 @@ const ItemListContainer = () => {
       setProductList (resolve)
       }
       reject('Hubo un ERROR!');
-    }, 1000);
+    }, 2000);
   });
 
 
@@ -35,7 +34,6 @@ const ItemListContainer = () => {
   return (
     <div>
       <ItemList lista={productList} />
-
     </div>
 
   );

@@ -1,9 +1,7 @@
-import './styles.css'
-import logo from './logo.svg'
+import './navbar-styles.css'
+import logo from '../images/logo2.png'
 import CartWidget from '../CartWidget/CartWidget';
 import { NavLink } from 'react-router-dom';
-
-
 
 const NavBar = () =>{
     return (
@@ -13,15 +11,23 @@ const NavBar = () =>{
             
             <div>
                 <ul className='navbar-link'>
-                    
+                
                 <li className="nav-item"> 
                         <NavLink to={'/'} className={({isActive}) => isActive ? 'activo' : 'noActivo' }>Home</NavLink>                    
                     </li>
 
                     <li className="nav-item"> 
-                        <NavLink to={'/category/diversion'} className={({isActive}) => isActive ? 'activo' : 'noActivo' }>Diversion</NavLink>                    
+                        <NavLink to={'/category/computacion'} className={({isActive}) => isActive ? 'activo' : 'noActivo' }>Computacion</NavLink>                    
                     </li>
                     
+                    <li className="nav-item"> 
+                        <NavLink to={'/category/belleza'} className={({isActive}) => isActive ? 'activo' : 'noActivo' }>Belleza</NavLink>                    
+                    </li>
+
+                    <li>
+                        <NavLink to={'/category/entretenimiento'} className={({isActive}) => isActive ? 'activo' : 'noActivo' }>Entretenimiento</NavLink>
+                    </li>
+
                     <li>
                         <NavLink to={'/category/electrodomesticos'} className={({isActive}) => isActive ? 'activo' : 'noActivo' }>Electrodomesticos</NavLink>
                     </li>

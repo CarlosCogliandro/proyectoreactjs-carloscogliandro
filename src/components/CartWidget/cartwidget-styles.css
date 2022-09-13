@@ -1,12 +1,11 @@
 .carrito {
   width: 30px;
-  border: none;
   color: royalblue;
-  font-size: 40px;
   background-color: white;
   border-radius: 40%;
   padding: 10px 20px;
   transition: all .3s;
+
 }
 
 .carrito:hover {

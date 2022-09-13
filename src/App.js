@@ -1,4 +1,4 @@
-import './App.css';
+// import './App.css';
 import './components/ItemListContainer/styles.css';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
@@ -10,9 +10,6 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 
 function App() {
   return (
-
-    
-
     <BrowserRouter>
       <NavBar />
     

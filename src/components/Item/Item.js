@@ -1,26 +1,27 @@
-import "./styles.css";
-import ItemCount from "../ItemCount/ItemCount";
+import './item-styles.css'
+import { Link } from "react-router-dom";
 
-const Item = ({ tittle, image, price, parrafo, stock }) => {
-  const handleOnAdd = (cantidad) => {
-    alert(`Agregaste ${cantidad} al carrito`);
-  };
-
+const Item = ({ tittle, image, price, id }) => {
+  
   return (
-    <div>
+    <div className="tarjetas">
       <div className="cards">
-        <h2>{tittle}</h2>
-        <img className="items" src={image} alt={tittle} key={tittle} />
-        <p>{parrafo}</p>
-        <h3>${price}</h3>
-        <ItemCount stock={stock} initial={1} onAdd={handleOnAdd} />
-        <h5>Stock: {stock}</h5>
+
+        <div>
+          <img className="items" src={image} alt={tittle} key={tittle} />
+        </div>
+
+        <div>
+          <h2>{tittle}</h2>
+          <h3>${price}</h3>
+          <Link to={`/detail/${id}`} style={{ textDecoration: 'none', color: 'black'}}>
+            <button className="btn-detalles">Detalles</button>
+          </Link>
+        </div>
+
       </div>
     </div>
   );
 };
 
-export default Item;
-
-
- 
+export default Item; 

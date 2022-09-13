@@ -1,27 +1,27 @@
-import './styles.css'
-import Item from "../Item/Item";
-import { Link, NavLink } from "react-router-dom";
+import './itemdetail-styles.css'
+import ItemCount from '../ItemCount/ItemCount';
 
+const ItemDetail = ({product}) => {
 
-const ItemDetail = ({lista}) => {
+    const handleOnAdd = (cantidad) => {
+        alert(`Agregaste ${cantidad} al carrito`);
+      };
 
     return (
-        <div className="itemdetail">{
-            lista.map((product) => (
-                <Link
-                    key={product.id} 
-                    to={'/detail/' + product.id} 
-                    style={{ textDecoration: 'none', color: 'black'}}
-                >
-                    <Item 
-                        tittle={product.tittle} 
-                        price={product.price} 
-                        image={product.image}
-                        parrafo={product.parrafo}
-                        stock={product.stock}
-                    />
-                </Link>
-            ))}
+        <div className="itemdetail">
+                
+                <div>
+                    <img className="img-detalle" src={product.image} alt={product.tittle} key={product.tittle} />
+                </div>
+
+                <div className='detalles'>
+                    <h2>{product.tittle}</h2>
+                    <h3>${product.price}</h3>
+                    <p>{product.parrafo}</p>
+                    <h5>Stock: {product.stock}</h5>
+                    <ItemCount stock={product.stock} initial={1} onAdd={handleOnAdd} />
+                </div> 
+
         </div>
     );
 };
