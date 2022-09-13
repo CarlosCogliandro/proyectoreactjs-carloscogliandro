@@ -8,6 +8,15 @@ const ItemDetailContainer = () => {
   const [productList, setProductList] = useState([]);
   const {id} = useParams();
 
+
+  const getProducts = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        setProductList (data.filter(product => product.id === id ))
+        reject('Hubo un ERROR!');
+    }, 2000);
+  });
+  
+
   useEffect(() => {
     getProducts
     .then((response) => {
@@ -16,12 +25,7 @@ const ItemDetailContainer = () => {
     .catch((error)=> console.log(error));
   }, [id]);
 
-  const getProducts = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        setProductList (data.filter(product => product.id === id ))
-        reject('Hubo un ERROR!');
-    }, 2000);
-  });
+  
 
   return (
     <div>
