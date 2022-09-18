@@ -22,10 +22,25 @@
     font-weight: bold;
     border-radius: 20px;
     border: 1px solid rgb(81, 0, 255);
-    padding: 8px;
+    padding: 10px;
     transition: 0.3s;
+    margin: 5px;
 }
 
 .boton-agregar:hover{
     background-color: rgb(3, 3, 179);
+}
+
+.boton-agregar2{
+    background-color: rgb(196, 96, 79);
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    border: 1px solid rgb(255, 0, 0);
+    padding: 10px;
+    transition: 0.3s;
+}
+
+.boton-agregar2:hover{
+    background-color: rgb(255, 0, 0);
 }

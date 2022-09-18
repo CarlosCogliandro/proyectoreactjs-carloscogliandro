@@ -1,5 +1,5 @@
 import header from '../images/header.png'
-import './styles.css'
+import './header-styles.css'
 
 const Header = () => {
   return (
