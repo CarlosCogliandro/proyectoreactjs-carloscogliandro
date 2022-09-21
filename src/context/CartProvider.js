@@ -18,7 +18,7 @@ export const CartProvider = ({children}) => {
     };
 
     const clear = () => {
-      setCart([]);
+        setCart([])
     };
 
     const removeItem = (productId) => {

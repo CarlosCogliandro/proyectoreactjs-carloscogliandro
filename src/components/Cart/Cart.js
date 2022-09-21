@@ -1,7 +1,8 @@
+import './cart-styles.css'
 import { useContext } from "react"
 import { CartContext } from "../../context/CartContext"
 import { Link } from "react-router-dom"
-import ItemCount from "../ItemCount/ItemCount"
+
 
 const Cart = () => {
 
@@ -9,8 +10,7 @@ const Cart = () => {
 
 
   return (
-    <div>
-      <h1>CART...</h1>
+    <div className='cart'>
       {cart.length === 0 ? (
         <>
         <h2>NO HAY ITEM EN EL CARRITO</h2>
@@ -19,20 +19,32 @@ const Cart = () => {
       ) : (
         <>
           {cart.map((item) =>(
-            <div key={item.id}>
-            <img src={item.image} alt={item.tittle} />
-            <h3>{item.tittle}</h3>
-            <p>{item.price}</p>
-            <p>{item.quantity}</p>
-            <button onClick={() => removeItem(item.id)}>Eliminar producto</button>
-            <button onClick={()=> clear()}>Vaciar carrito</button>
-            <button>Finalizar comprar</button>
+            <div key={item.id} className='detalles'>
+              
+              <div className='detalles2'>
+             
+                <img src={item.image} alt={item.tittle} className='img-cart'/>
+
+                <div className='detalles3'>
+                  <h3 className='detalle-item'>{item.tittle}</h3>
+                  <p className='detalle-item'>$ {item.price}</p>
+                  <p className='detalle-item'>Cantidad: {item.quantity}</p>
+                </div>
+
+                <button onClick={() => removeItem(item.id)} className='boton-eliminar'>X</button>
+
+              </div>
+
             </div>        
           ))}
         </>
       )}
 
-      
+      <div className='botones-finalizacion'>
+        <button onClick={()=> clear()} className='boton-agregar2'>Vaciar carrito</button>
+        <button className='boton-agregar'>Finalizar comprar</button>
+      </div>
+
     </div>
   )}
 
