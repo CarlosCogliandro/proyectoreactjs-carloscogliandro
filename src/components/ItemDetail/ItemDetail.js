@@ -1,17 +1,21 @@
 import './itemdetail-styles.css'
 import ItemCount from '../ItemCount/ItemCount';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { CartContext } from '../../context/CartContext';
 
 
 const ItemDetail = ({product}) => {
 
-      const [hasAddedProductToCart, setHasAddedProductToCart] = useState(false);
+  const [hasAddedProductToCart, setHasAddedProductToCart] = useState(false);
+      
+  const {addToCart} = useContext(CartContext)
 
-      function handleOnAdd(cantidad) {
+      function handleOnAdd(cantidad, stock) {
         if (cantidad > 0) {
           setHasAddedProductToCart(true);
+          addToCart(product, cantidad)
         }
         alert(`Agregaste ${cantidad} ${product.tittle} al carrito`)
       }
@@ -22,7 +26,6 @@ const ItemDetail = ({product}) => {
                 <div>
                     <img className="img-detalle" src={product.image} alt={product.tittle} key={product.tittle} />
                 </div>
-
                 <div className='detalles'>
                     <h2>{product.tittle}</h2>
                     <h3>${product.price}</h3>
@@ -30,7 +33,7 @@ const ItemDetail = ({product}) => {
                     <h5>Stock: {product.stock}</h5>
                     {hasAddedProductToCart ? 
                     <Link to={'/cart'}> <Button className='boton-agregar'> Ver el carrito </Button></Link> : 
-                    (<ItemCount initial={1} stock={product.stock} onAdd={handleOnAdd} /> )}
+                      (<ItemCount initial={1} stock={product.stock} onAdd={handleOnAdd}  /> )}
                     <Link to={'/'}> <Button className='boton-agregar2'>Seguir comprando</Button></Link>
                 </div> 
 

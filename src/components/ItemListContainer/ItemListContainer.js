@@ -2,7 +2,6 @@ import data from "../mockData";
 import ItemList from "../ItemList/ItemList";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-// import resolve from "resolve";
 
 const ItemListContainer = () => {
   const [productList, setProductList] = useState([]);

@@ -7,6 +7,7 @@ const ItemList = ({lista}) => {
         <div className="tarjetas"> {
             lista.map((product) => (
                     <Item 
+                        key={product.id}
                         tittle={product.tittle} 
                         price={product.price} 
                         image={product.image}
