@@ -12,7 +12,7 @@ const Cart = () => {
     <div className='cart'>
       {cart.length === 0 ? (
         <>
-          <h2 className='nohay'>NO HAY ITEM EN EL CARRITO</h2>
+          <h2 className='nohay'>NO HAY PRODUCTOS EN EL CARRITO</h2>
           <img src='https://th.bing.com/th/id/OIP.iwNao-GReOHcag3MVdlGNwHaIE?pid=ImgDet&rs=1' className='img-triste'></img>
           <Link to={'/'}><button className='boton-volver'>Volver a la pagina principal</button></Link>
         </>
@@ -33,15 +33,18 @@ const Cart = () => {
 
             </div>
           ))}
+
           <p className='total'>Total: $ {totalQuantity()}</p>
+          
+          <div className='botones-finalizacion'>
+
+            <button onClick={() => clear()} className='boton-agregarCart2'>Vaciar carrito</button>
+            
+            <Link to={'/finalizarcompra'}><button className='boton-agregarCart'>Finalizar comprar</button></Link>
+
+          </div>
         </>
       )}
-
-      <div className='botones-finalizacion'>
-        <button onClick={() => clear()} className='boton-agregarCart2'>Vaciar carrito</button>
-        <Link to={'/finalizarcompra'}><button className='boton-agregarCart'>Finalizar comprar</button></Link>
-      </div>
-
     </div>
   )
 }
