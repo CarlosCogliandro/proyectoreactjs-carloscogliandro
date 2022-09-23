@@ -4,6 +4,27 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyAP4dyqRfeGTD3h_Kdphd_B23qnF8K-FWw",
+  authDomain: "coderhouse-ecommerce-35554.firebaseapp.com",
+  projectId: "coderhouse-ecommerce-35554",
+  storageBucket: "coderhouse-ecommerce-35554.appspot.com",
+  messagingSenderId: "301987796956",
+  appId: "1:301987796956:web:793af71418759860666119"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   //<React.StrictMode>
@@ -15,3 +36,13 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+
+
+
+
+
+
+
+
+

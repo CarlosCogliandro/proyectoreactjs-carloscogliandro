@@ -1,103 +1,106 @@
-.cart{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 20px;
+.cart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
 }
 
-.img-cart{
-    width: 80px;
+.img-cart {
+  width: 80px;
 }
 
-.detalles1{
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    margin: 2px;
-    border-bottom: 1px solid black 
+.detalles1 {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 2px;
+  border-bottom: 1px solid black;
 }
 
-
-.detalles2{
-    width: 40%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+.detalles2 {
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.detalleCart-item{
-    font-weight: bold;
+.detalleCart-item {
+  font-weight: bold;
 }
 
-.botones-finalizacion{
-    margin-top: 50px;
+.botones-finalizacion {
+  margin-top: 50px;
 }
 
-
-.boton-agregarCart{
-    background-color: rgb(82, 94, 187);
-    color: white;
-    font-weight: bold;
-    border-radius: 20px;
-    border: 1px solid rgb(81, 0, 255);
-    padding: 10px;
-    transition: 0.3s;
-    margin: 5px;
+.boton-agregarCart {
+  background-color: rgb(82, 94, 187);
+  color: white;
+  font-weight: bold;
+  border-radius: 20px;
+  border: 1px solid rgb(81, 0, 255);
+  padding: 10px;
+  transition: 0.3s;
+  margin: 5px;
 }
 
-.boton-agregarCart:hover{
-    background-color: rgb(3, 3, 179);
+.boton-agregarCart:hover {
+  background-color: rgb(3, 3, 179);
 }
 
-.boton-agregarCart2{
-    background-color: rgb(196, 96, 79);
-    color: white;
-    font-weight: bold;
-    border-radius: 20px;
-    border: 1px solid rgb(255, 0, 0);
-    padding: 10px;
-    transition: 0.3s;
+.boton-agregarCart2 {
+  background-color: rgb(196, 96, 79);
+  color: white;
+  font-weight: bold;
+  border-radius: 20px;
+  border: 1px solid rgb(255, 0, 0);
+  padding: 10px;
+  transition: 0.3s;
 }
 
-.boton-agregarCart2:hover{
-    background-color: rgb(255, 0, 0);
+.boton-agregarCart2:hover {
+  background-color: rgb(255, 0, 0);
 }
 
-.boton-eliminar{
-    color: white;
-    background-color: red;
-    border: none;
-    height: 20px;
-    width: 20px;
-    transition: 0.3s;
+.boton-eliminar {
+  color: white;
+  background-color: red;
+  border: none;
+  height: 20px;
+  width: 20px;
+  transition: 0.3s;
 }
 
-.boton-eliminar:hover{
-    background-color: rgb(190, 89, 89);
+.boton-eliminar:hover {
+  background-color: rgb(190, 89, 89);
 }
 
-.boton-volver{
-    background-color: rgb(82, 94, 187);
-    color: white;
-    font-weight: bold;
-    border-radius: 20px;
-    border: 1px solid rgb(81, 0, 255);
-    padding: 10px;
-    transition: 0.3s;
-    margin: 5px;
+.boton-volver {
+  background-color: rgb(82, 94, 187);
+  color: white;
+  font-weight: bold;
+  border-radius: 20px;
+  border: 1px solid rgb(81, 0, 255);
+  padding: 10px;
+  transition: 0.3s;
+  margin: 5px;
 }
 
-.boton-volver:hover{
-    background-color: rgb(3, 3, 179);
+.boton-volver:hover {
+  background-color: rgb(3, 3, 179);
 }
 
-.img-triste{
-    width: 150px;
+.img-triste {
+  width: 150px;
 }
 
-.nohay{
-    color: red;
-    font-size: 50px;
+.nohay {
+  color: red;
+  font-size: 50px;
+}
+
+.total {
+  font-weight: bold;
+  font-size: 22px;
 }
