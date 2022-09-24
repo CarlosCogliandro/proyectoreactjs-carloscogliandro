@@ -1,12 +1,12 @@
-// import { useState } from 'react';
+// import { useState, useContext } from 'react';
 // import { Link } from 'react-router-dom';
 // import firebase from 'firebase/app'
 // import { getFirestore } from '../../firebase/firebase.jsx';
-// import { useCartContext } from '../../context/cartContext/cartContext.jsx';
+// import { CartContext } from '../../context/CartContext.js';
 // // import './checkout.scss';
 
 // const Checkout = () => {
-//     const { cart, totalPrice, emptyCart } = useCartContext();
+//     const { cart, totalQuantity, emptyCart } = CartContext();
 
 //     const [name, setName] = useState("");
 //     const [surname, setSurname] = useState("");

@@ -21,6 +21,7 @@
      text-decoration: none;
      color: black;
      margin-left: 20px;
+     
    }
 
    .activo{
@@ -28,10 +29,12 @@
     text-decoration: none; 
     color: white; 
     padding: 20px;
+
    }
 
    .noActivo{
     text-decoration: none; 
     color: black; 
     padding: 20px;
+
    }

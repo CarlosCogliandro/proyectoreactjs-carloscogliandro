@@ -11,37 +11,45 @@ const ItemDetailContainer = () => {
 
 
 
-  
+
   //Firebase
 
   const db = getFirestore();
-  
-  const queryDoc = doc(db, 'items', 'HoesbG7sKa0m6WUqUhx5');
-  
-  getDoc(queryDoc).then(res => {
-    console.log(res.id);
-    console.log(res.data())
-  })
-  .catch(error => console.log(error));
+
+  const getProduct = () => {
+    const queryDoc = doc(db, 'items', id);
+
+    getDoc(queryDoc)
+      .then((res) => {
+        setProduct({ id: res.id, ...res.data() })
+      })
+      .catch(error => console.log(error));
+  }
+
+  useEffect(() => {
+    getProduct();
+  }, [id]);
+
 
   // Firebase
 
 
+  
+  // USANDO EL MOCKDATA
 
+  // useEffect(() => {
+  //   getProduct
+  //     .then((response) => {
+  //       setProduct(response.find((product) => product.id === id));
+  //     })
+  //     .catch((error) => console.log(error));
+  // }, [id]);
 
-  useEffect(() => {
-    getProduct
-      .then((response) => {
-        setProduct(response.find((product) => product.id === id));
-      })
-      .catch((error) => console.log(error));
-  }, [id]);
-
-  const getProduct = new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(data);
-    }, 2000);
-  });
+  // const getProduct = new Promise((resolve, reject) => {
+  //   setTimeout(() => {
+  //     resolve(data);
+  //   }, 2000);
+  // });
 
   return (
     <div>

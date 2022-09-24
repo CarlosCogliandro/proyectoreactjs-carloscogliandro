@@ -16,3 +16,9 @@
 .carrito:focus {
   outline: none;
 }
+
+.numero{
+  font-size: 20px;
+  font-weight: bold;
+  color: red;
+}
