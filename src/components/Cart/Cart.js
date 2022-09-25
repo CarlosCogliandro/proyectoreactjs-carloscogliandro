@@ -2,6 +2,7 @@ import './cart-styles.css'
 import { useContext } from "react"
 import { CartContext } from "../../context/CartContext"
 import { Link } from "react-router-dom"
+import ItemCount from '../ItemCount/ItemCount'
 
 
 const Cart = () => {
@@ -28,18 +29,17 @@ const Cart = () => {
                 <p className='detalleCart-item'>$ {item.price}</p>
                 <p className='detalleCart-item'>Cantidad: {item.quantity}</p>
               </div>
-
               <button onClick={() => removeItem(item.id)} className='boton-eliminar'>X</button>
 
             </div>
           ))}
 
           <p className='total'>Total: $ {totalQuantity()}</p>
-          
+
           <div className='botones-finalizacion'>
 
             <button onClick={() => clear()} className='boton-agregarCart2'>Vaciar carrito</button>
-            
+
             <Link to={'/finalizarcompra'}><button className='boton-agregarCart'>Finalizar comprar</button></Link>
 
           </div>

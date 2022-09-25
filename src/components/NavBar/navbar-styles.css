@@ -7,9 +7,12 @@
    }
    
    .navbar-logo{
-     width: 70px;
+     width: 60px;
+     height: 60px;
+     border-radius: 100%;
+     margin: 10px;
    }
-   
+
    .navbar-link{
      display: flex;
      flex-direction: row;
@@ -21,7 +24,6 @@
      text-decoration: none;
      color: black;
      margin-left: 20px;
-     
    }
 
    .activo{
@@ -29,12 +31,14 @@
     text-decoration: none; 
     color: white; 
     padding: 20px;
-
    }
 
    .noActivo{
     text-decoration: none; 
     color: black; 
     padding: 20px;
-
    }
+
+   .cart-widget{ 
+      text-decoration: none;
+    }

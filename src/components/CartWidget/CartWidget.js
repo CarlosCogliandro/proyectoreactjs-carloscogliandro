@@ -7,12 +7,10 @@ const CartWidget = () => {
   const { totalCartItem } = useContext(CartContext);
 
   return (
-
-
-    <button>
-      <img src={carrito} className='carrito' alt="carrito"/>
+    <div className='widget-carrito'>
+      <img src={carrito} className='img-carrito' alt="carrito" />
       <span className='numero'>{totalCartItem()}</span>
-    </button>
+    </div>
   )
 }
 

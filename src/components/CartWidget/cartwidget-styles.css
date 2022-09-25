@@ -1,24 +1,33 @@
-.carrito {
-  width: 30px;
-  color: royalblue;
+.widget-carrito{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 70px;
+  height: 50px;
   background-color: white;
-  border-radius: 10%;
-  padding: 10px 20px;
-  transition: all .3s;
+  transition: all 0.3s;
+  border-radius: 400%; 
 }
 
-.carrito:hover {
+.widget-carrito:hover {
   cursor: pointer;
   color: white;
   background-color: royalblue;
 }
 
-.carrito:focus {
-  outline: none;
+.img-carrito {
+  width: 30px;
 }
 
-.numero{
-  font-size: 20px;
+.numero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 500%;
+  font-size: 12px;
   font-weight: bold;
-  color: red;
+  background-color: red;
+  color: white;
 }
