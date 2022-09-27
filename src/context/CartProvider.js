@@ -1,13 +1,52 @@
 import { useState } from "react"
 import { CartContext } from "./CartContext";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([])
 
+
+  const itemAgregado = () => {
+    toast.warn('Ya se encuentra agregado', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: 0,
+      });
+  }
+
+  const itemEliminado = () => {
+    toast.error('Item Eliminado', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: 0,
+      });
+  }
+
+  const itemsEliminados = () => {
+    toast.info('Carrito Vacio', {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: 0,
+      });
+  }
+
   const addToCart = (item, quantity) => {
     if (isInCart(item.id)) {
-      alert('Ya esta en el carrito');
+      itemAgregado();
     } else {
       setCart([...cart, { ...item, quantity }]);
     }
@@ -18,7 +57,8 @@ export const CartProvider = ({ children }) => {
   };
 
   const clear = () => {
-    setCart([])
+    setCart([]);
+    itemsEliminados();
   };
 
   const removeItem = (productId) => {
@@ -29,7 +69,8 @@ export const CartProvider = ({ children }) => {
         nuevoArreglo.push(product)
       }
     })
-    setCart(nuevoArreglo)
+    setCart(nuevoArreglo);
+    itemEliminado();
   }
 
   const totalQuantity = () => {
@@ -44,6 +85,7 @@ export const CartProvider = ({ children }) => {
   return (
     <CartContext.Provider value={{ cart, addToCart, removeItem, clear, totalQuantity, totalCartItem }}>
       {children}
+      <ToastContainer/>
     </CartContext.Provider>
   )
 }

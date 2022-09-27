@@ -4,8 +4,8 @@ import { useContext, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
-
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ItemDetail = ({ product }) => {
 
@@ -13,13 +13,27 @@ const ItemDetail = ({ product }) => {
 
   const { addToCart } = useContext(CartContext);
 
-  function handleOnAdd(cantidad, stock) {
+
+  const itemAgregado = () => {
+    toast.success('Item Agregado', {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: 0,
+      });
+  }
+
+  function handleOnAdd(cantidad) {
     if (cantidad > 0) {
       setHasAddedProductToCart(true);
       addToCart(product, cantidad)
     }
-    alert(`Agregaste ${cantidad} ${product.tittle} al carrito`)
+    itemAgregado()
   }
+
 
   return (
     <div className="itemdetail">
@@ -36,6 +50,7 @@ const ItemDetail = ({ product }) => {
           <Link to={'/cart'}> <Button className='boton-agregar'> Ver el carrito </Button></Link> :
           (<ItemCount initial={1} stock={product.stock} onAdd={handleOnAdd} />)}
         <Link to={'/'}> <Button className='boton-agregar2'>Seguir comprando</Button></Link>
+        <ToastContainer/>
       </div>
 
     </div>

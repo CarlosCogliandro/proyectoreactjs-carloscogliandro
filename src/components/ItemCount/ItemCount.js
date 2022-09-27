@@ -1,8 +1,13 @@
 import "./itemcount-styles.css";
 import { useState } from "react";
 
+
 const ItemCount = ({ onAdd, stock, initial }) => {
+  
   const [initialState, setInitialState] = useState(initial);
+
+  
+
 
   const suma = () => {
     initialState < stock
@@ -17,8 +22,8 @@ const ItemCount = ({ onAdd, stock, initial }) => {
   };
 
   const handleOnAdd = () => {
-    if (initialState <= stock) onAdd(initialState);
-  };
+    if (initialState <= stock) onAdd(initialState)
+  }
 
   return (
     <div className="stock">
@@ -28,7 +33,9 @@ const ItemCount = ({ onAdd, stock, initial }) => {
         <button onClick={suma} className="btn">+</button>
       </div>
       <button onClick={handleOnAdd} className="boton-agregar">Agregar al carrito</button>
+  
     </div>
+    
   );
 };
 
