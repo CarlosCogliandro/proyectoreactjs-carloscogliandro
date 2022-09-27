@@ -1,4 +1,4 @@
-import data from "../mockData";
+// import data from "../mockData";
 import ItemList from "../ItemList/ItemList";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -71,6 +71,7 @@ const ItemListContainer = () => {
   //     })
   //     .catch((error) => console.log(error));
   // }, [categoryName]);
+
 
   return (
     <div>

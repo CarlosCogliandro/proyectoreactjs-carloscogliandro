@@ -2,7 +2,7 @@ import './cart-styles.css'
 import { useContext } from "react"
 import { CartContext } from "../../context/CartContext"
 import { Link } from "react-router-dom"
-import ItemCount from '../ItemCount/ItemCount'
+// import ItemCount from '../ItemCount/ItemCount'
 
 
 const Cart = () => {
@@ -14,7 +14,7 @@ const Cart = () => {
       {cart.length === 0 ? (
         <>
           <h2 className='nohay'>NO HAY PRODUCTOS EN EL CARRITO</h2>
-          <img src='https://th.bing.com/th/id/OIP.iwNao-GReOHcag3MVdlGNwHaIE?pid=ImgDet&rs=1' className='img-triste'></img>
+          <img src='https://th.bing.com/th/id/OIP.iwNao-GReOHcag3MVdlGNwHaIE?pid=ImgDet&rs=1' alt='IMG-TRISTE' className='img-triste'></img>
           <Link to={'/'}><button className='boton-volver'>Volver a la pagina principal</button></Link>
         </>
       ) : (
