@@ -15,12 +15,12 @@ const ItemDetail = ({ product }) => {
 
 
   const itemAgregado = () => {
-    toast.success('Item Agregado', {
+    toast.success(`Has agregado ${product.tittle} al carrito`, {
       position: "bottom-right",
       autoClose: 3000,
       hideProgressBar: true,
       closeOnClick: true,
-      pauseOnHover: true,
+      pauseOnHover: false,
       draggable: true,
       progress: 0,
       });

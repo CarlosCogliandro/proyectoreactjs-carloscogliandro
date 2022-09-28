@@ -3,11 +3,73 @@ import { useContext } from "react"
 import { CartContext } from "../../context/CartContext"
 import { Link } from "react-router-dom"
 // import ItemCount from '../ItemCount/ItemCount'
+import { collection, addDoc, getFirestore, updateDoc, doc } from 'firebase/firestore'
+import moment from 'moment'
 
 
 const Cart = () => {
 
   const { cart, removeItem, clear, totalQuantity } = useContext(CartContext)
+
+  // firebase
+
+
+  const createOrder = () => {
+    const db = getFirestore();
+    const order = {
+      buyer: {
+        name: 'Marcelo Gomez',
+        phone: 456465564,
+        email: 'test@test.com'
+      },
+      item: cart,
+      total: cart.reduce(
+        (valorPasado, valorActual) =>
+          valorPasado + valorActual.price * valorActual.quantity,
+        0
+      ),
+      date: moment().format(),
+    }
+    const query = collection(db, "orders");
+    addDoc(query, order)
+      .then(({id}) => {
+        console.log(id);
+        alert('Gracias por tu compra')
+      })
+      .catch(() => { alert('Tu compra no fue realizada. Intenta mas tarde') })
+  }
+
+
+  // const updateOrder = () => {
+  //   const idOrder = 'UyiinBliNPfvurmUW0zQ'
+  //   const order = {
+  //     buyer: {
+  //       name: 'juan',
+  //       phone: 132165465,
+  //       email: 'test@test.com'
+  //     },
+  //     item: cart,
+  //     total: cart.reduce(
+  //       (valorPasado, valorActual) =>
+  //         valorPasado + valorActual.price * valorActual.quantity,
+  //       0
+  //     ),
+  //     date: moment().format(),
+  //   };
+
+  //   const queryUpdate = doc(db, 'orders', idOrder);
+
+  //   updateDoc(queryUpdate, order)
+  //     .then((response) => {
+  //       console.log(response)
+  //     })
+  // }
+
+
+
+  // Firebase
+
+
 
   return (
     <div className='cart'>
@@ -40,7 +102,7 @@ const Cart = () => {
 
             <button onClick={() => clear()} className='boton-agregarCart2'>Vaciar carrito</button>
 
-            <Link to={'/finalizarcompra'}><button className='boton-agregarCart'>Finalizar comprar</button></Link>
+            <Link to={'/finalizarcompra'}><button onClick={createOrder} className='boton-agregarCart'>Finalizar comprar</button></Link>
 
           </div>
         </>
