@@ -10,8 +10,8 @@ export const CartProvider = ({ children }) => {
 
   // TOASTIFY
 
-  const itemYaAgregado = () => {
-    toast.warn('Ya se encuentra agregado', {
+  const itemYaAgregado = (item) => {
+    toast.warn(`${item.tittle} ya se encuentra agregado`, {
       position: "top-right",
       autoClose: 3000,
       hideProgressBar: true,
@@ -46,13 +46,26 @@ export const CartProvider = ({ children }) => {
     });
   }
 
+  const itemAgregado = (item) => {
+    toast.success(`Has agregado ${item.tittle} al carrito`, {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: 0,
+      });
+  }
+
   // TOASTIFY
 
 
   const addToCart = (item, quantity) => {
     if (isInCart(item.id)) {
-      itemYaAgregado();
+      itemYaAgregado(item);
     } else {
+      itemAgregado(item);
       setCart([...cart, { ...item, quantity }]);
     }
   };
@@ -67,15 +80,15 @@ export const CartProvider = ({ children }) => {
   };
 
   const removeItem = (productId) => {
-    let nuevoArreglo = [];
+    let newArray = [];
     cart.forEach((product) => {
       if (product.id === productId) {
       } else {
-        nuevoArreglo.push(product)
+        newArray.push(product)
       }
     })
-    setCart(nuevoArreglo);
-    itemEliminado();
+    setCart(newArray);
+    itemEliminado() ;
   }
 
   const totalQuantity = () => {

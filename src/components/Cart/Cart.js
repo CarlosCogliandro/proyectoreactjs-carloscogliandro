@@ -1,7 +1,7 @@
 import './cart-styles.css'
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { CartContext } from "../../context/CartContext"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 // import ItemCount from '../ItemCount/ItemCount'
 import { collection, addDoc, getFirestore, updateDoc, doc } from 'firebase/firestore'
 import moment from 'moment'
@@ -9,66 +9,73 @@ import moment from 'moment'
 
 const Cart = () => {
 
-  const { cart, removeItem, clear, totalQuantity } = useContext(CartContext)
+  const navigate = useNavigate();
 
-  // firebase
+  const { cart, removeItem, clear, totalQuantity } = useContext(CartContext);
 
+
+  // Firebase ----------------------------------------------
+
+
+  const [order, setOrder] = useState({
+    buyer: {
+      name: 'Juan',
+      phone: 123456789,
+      email: 'test@test.com',
+    },
+    item: [],
+    total: 0,
+    date: '',
+  });
+
+  const db = getFirestore();
 
   const createOrder = () => {
-    const db = getFirestore();
-    const order = {
-      buyer: {
-        name: 'Marcelo Gomez',
-        phone: 456465564,
-        email: 'test@test.com'
-      },
-      item: cart,
-      total: cart.reduce(
-        (valorPasado, valorActual) =>
-          valorPasado + valorActual.price * valorActual.quantity,
-        0
-      ),
-      date: moment().format(),
-    }
-    const query = collection(db, "orders");
+    setOrder((currentOrder) => {
+      return {
+        ...currentOrder,
+        items: cart,
+        total: cart.reduce((acc, item) => acc + item.price * item.quantity, 0),
+        date: moment().format('DD/MM/YYYY, h:mm:ss a'),
+      }
+    });
+
+    const query = collection(db, 'orders');
     addDoc(query, order)
-      .then(({id}) => {
-        console.log(id);
+      .then(() => {
+        updateStockProducts();
         alert('Gracias por tu compra')
       })
-      .catch(() => { alert('Tu compra no fue realizada. Intenta mas tarde') })
-  }
+      .catch(() =>
+        alert('Tu compra no fue realizada. Intenta mas tarde')
+      );
+  };
+
+  const updateStockProducts = () => {
+    cart.forEach((product) => {
+      const queryUpdate = doc(db, 'items', product.id);
+      updateDoc(queryUpdate, {
+        categoryId: product.categoryId,
+        parrafo: product.parrafo,
+        image: product.image,
+        price: product.price,
+        tittle: product.tittle,
+        stock: product.stock - product.quantity,
+      })
+        .then(() => {
+          if (cart[cart.length - 1].id === product.id) {
+            clear();
+            navigate('/');
+          }
+        })
+        .catch(() => {
+          console.log('Error al actualizar stock');
+        });
+    });
+  };
 
 
-  // const updateOrder = () => {
-  //   const idOrder = 'UyiinBliNPfvurmUW0zQ'
-  //   const order = {
-  //     buyer: {
-  //       name: 'juan',
-  //       phone: 132165465,
-  //       email: 'test@test.com'
-  //     },
-  //     item: cart,
-  //     total: cart.reduce(
-  //       (valorPasado, valorActual) =>
-  //         valorPasado + valorActual.price * valorActual.quantity,
-  //       0
-  //     ),
-  //     date: moment().format(),
-  //   };
-
-  //   const queryUpdate = doc(db, 'orders', idOrder);
-
-  //   updateDoc(queryUpdate, order)
-  //     .then((response) => {
-  //       console.log(response)
-  //     })
-  // }
-
-
-
-  // Firebase
-
+  // Firebase ----------------------------------------------
 
 
   return (
