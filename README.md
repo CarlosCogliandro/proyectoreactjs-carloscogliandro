@@ -2,7 +2,8 @@
 
 # Tienda E-Commerce por CARLOS COGLIANDRO
 
-Este proyecto esta realizado en React y Bootstrap, es el proyecto final de el curso de React dictado en [CoderHouse] (https://www.coderhouse.com)
+Este proyecto esta realizado en React y Bootstrap, es el proyecto final de el curso de React dictado en [CoderHouse] 
+(https://www.coderhouse.com)
 
 Es un Ecommerce de productos de uso cotidiano, como por ejemplo electrodomesticos, entretenimiento, belleza, etc.
 
@@ -14,4 +15,4 @@ Es un Ecommerce de productos de uso cotidiano, como por ejemplo electrodomestico
 ## Para mas informacion
 
 Pueden visitar mi portfolio: https://github.com/CarlosCogliandro
-y este es el link del proyecto React: https://github.com/CarlosCogliandro/proyectoreactjs-carloscogliandro
+y este es el link del proyecto React en Vercel: https://proyectoreactjs-carloscogliandro.vercel.app/

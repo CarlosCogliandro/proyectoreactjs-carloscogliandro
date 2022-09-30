@@ -16,29 +16,18 @@ const ItemListContainer = () => {
 
   const getProducts = () => {
     const db = getFirestore();
-    const querySnapshot = collection(db, 'items');
+    const queryBase = collection(db, 'items');
+    const querySnapshot = categoryName ? query(queryBase, where('categoryId', '==', categoryName)) : queryBase;
 
-    // const query = categoryName ? where('category', '==', categoryName) : null     LO VAMOS A VER MAS ADELANTE
-
-    if (categoryName) {
-      const queryFilter = query(
-        querySnapshot, where('categoryId', '==', categoryName)
-      );
-      getDocs(queryFilter).then((response) => {
-        const data = response.docs.map((doc) => {
-          return { id: doc.id, ...doc.data() }
-        })
-        setProductList(data);
-      });
-    } else {
-      getDocs(querySnapshot).then((response) => {
+    getDocs(querySnapshot)
+      .then((response) => {
         const data = response.docs.map((doc) => {
           return { id: doc.id, ...doc.data() }
         });
-        setProductList(data)
-      })
-    }
-  }
+        setProductList(data);
+      });
+  };
+
 
   useEffect(() => {
     getProducts();
@@ -48,7 +37,7 @@ const ItemListContainer = () => {
   //    --- Firebase
 
 
-  
+
   // USANDO EL MOCKDATA
 
   // useEffect(() => {

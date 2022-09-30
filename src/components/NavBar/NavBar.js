@@ -9,7 +9,7 @@ import { NavDropdown } from 'react-bootstrap';
 const NavBar = () => {
     return (
         <div className='navbar-container' bg="light" expand="lg">
-            <NavLink to={'/'}><img src={logo} className="navbar-logo" alt="logo"/></NavLink>
+            <NavLink to={'/'}><img src={logo} className="navbar-logo" alt="logo" /></NavLink>
             <div>
                 <ul className='navbar-link'>
 

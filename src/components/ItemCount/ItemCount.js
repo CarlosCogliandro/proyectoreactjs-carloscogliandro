@@ -6,9 +6,6 @@ const ItemCount = ({ onAdd, stock, initial }) => {
   
   const [initialState, setInitialState] = useState(initial);
 
-  
-
-
   const suma = () => {
     initialState < stock
       ? setInitialState(initialState + 1)

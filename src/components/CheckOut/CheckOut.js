@@ -12,14 +12,14 @@ const CheckOut = () => {
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
-    const [phone, setPhone] = useState();
+    const [phone, setPhone] = useState(0);
     const [orderID, setOrderID] = useState();
     const [date, setDate] = useState("");
     const [total, setTotal] = useState(0);
     const [purchase, setPurchase] = useState([]);
 
-    const managePurchase = () => {
-        // evt.preventDefault();
+    const managePurchase = (evt) => {
+        evt.preventDefault();
 
         const db = getFirestore();
 

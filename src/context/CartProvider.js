@@ -22,8 +22,8 @@ export const CartProvider = ({ children }) => {
     });
   }
 
-  const itemEliminado = () => {
-    toast.error(`Has eliminado un producto del carrito`, {
+  const itemEliminado = (item) => {
+    toast.error(`Has eliminado ${item.tittle} del carrito`, {
       position: "top-right",
       autoClose: 3000,
       hideProgressBar: true,
@@ -55,11 +55,15 @@ export const CartProvider = ({ children }) => {
       pauseOnHover: false,
       draggable: true,
       progress: 0,
-      });
+    });
   }
 
   // TOASTIFY
 
+
+  const isInCart = (id) => {
+    return cart.some((item) => item.id === id)
+  };
 
   const addToCart = (item, quantity) => {
     if (isInCart(item.id)) {
@@ -70,25 +74,14 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-  const isInCart = (id) => {
-    return cart.some((item) => item.id === id)
-  };
-
   const clear = () => {
     setCart([]);
     itemsEliminados();
   };
 
-  const removeItem = (productId) => {
-    let newArray = [];
-    cart.forEach((product) => {
-      if (product.id === productId) {
-      } else {
-        newArray.push(product)
-      }
-    })
-    setCart(newArray);
-    itemEliminado() ;
+  const removeItem = (productId, item) => {
+    setCart(cart.filter((product) => product.id !== productId));
+    itemEliminado(item);
   }
 
   const totalQuantity = () => {
@@ -101,7 +94,7 @@ export const CartProvider = ({ children }) => {
 
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeItem, clear, totalQuantity, totalCartItem }}>
+    <CartContext.Provider value={{ cart, addToCart, clear, removeItem, totalQuantity, totalCartItem }}>
       {children}
       <ToastContainer />
     </CartContext.Provider>
