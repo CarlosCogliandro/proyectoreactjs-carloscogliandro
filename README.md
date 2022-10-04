@@ -2,6 +2,12 @@
 
 # Tienda E-Commerce por CARLOS COGLIANDRO
 
+
+
+https://user-images.githubusercontent.com/102234040/193945440-30e0fd6c-7af2-4976-beaa-ccf696307f58.mp4
+
+
+
 Este proyecto esta realizado en React y Bootstrap, es el proyecto final de el curso de React dictado en [CoderHouse] 
 (https://www.coderhouse.com)
 
