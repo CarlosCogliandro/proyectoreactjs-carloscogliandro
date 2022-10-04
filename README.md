@@ -17,8 +17,14 @@ Es un Ecommerce de productos de uso cotidiano, como por ejemplo electrodomestico
 
 - [React-Bootstrap](https://react-bootstrap.github.io/)
 - [React-router-dom](https://v5.reactrouter.com/)
+- [Sweet Alert](https://sweetalert.js.org/)
 
 ## Para mas informacion
 
 Pueden visitar mi portfolio: https://github.com/CarlosCogliandro
 y este es el link del proyecto React en Vercel: https://proyectoreactjs-carloscogliandro.vercel.app/
+
+## Agradecimientos:
+
+Primero a Juan Magos (Profesor del curso) por brindarnos todos sus conocimientos sobre React JS y tomarse su tiempo, dedicacion y paciencia en que podamos aprender.
+Segundo, al tutor Julian Bragazzi por la paciencia y las respuestas inmediatas a cualquier duda que me surgia. El mismo iniciando videoconferencias para solucionar cualquier inquietud que tuve.
