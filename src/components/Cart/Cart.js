@@ -9,71 +9,70 @@ import moment from 'moment'
 
 const Cart = () => {
 
-  const navigate = useNavigate();
-
   const { cart, removeItem, clear, totalQuantity } = useContext(CartContext);
 
 
-  // Firebase ----------------------------------------------
+  // // Firebase ----------------------------------------------
 
+  // const navigate = useNavigate();
 
-  const [order, setOrder] = useState({
-    buyer: {
-      name: '',
-      phone: 0,
-      email: '',
-    },
-    item: [],
-    total: 0,
-    date: '',
-  });
+  // const [order, setOrder] = useState({
+  //   buyer: {
+  //     name: '',
+  //     phone: 0,
+  //     email: '',
+  //   },
+  //   item: [],
+  //   total: 0,
+  //   date: '',
+  // });
 
-  const db = getFirestore();
+  // const db = getFirestore();
 
-  const createOrder = () => {
-    setOrder((currentOrder) => {
-      return {
-        ...currentOrder,
-        items: cart,
-        total: cart.reduce((acc, item) => acc + item.price * item.quantity, 0),
-        date: moment().format('DD/MM/YYYY, h:mm:ss a'),
-      }
-    });
+  // const createOrder = () => {
+  //   setOrder((currentOrder) => {
+  //     return {
+  //       ...currentOrder,
+  //       items: cart,
+  //       total: cart.reduce((acc, item) => acc + item.price * item.quantity, 0),
+  //       date: moment().format('DD/MM/YYYY, h:mm:ss a'),
+  //     }
+  //   });
 
-    const query = collection(db, 'orders');
-    addDoc(query, order)
-      .then(({ id }) => {
-        console.log(id)
-        updateStockProducts();
-        alert('Gracias por tu compra')
-      })
-      .catch(() =>
-        alert('Tu compra no fue realizada. Intenta mas tarde')
-      );
-  };
+  //   const query = collection(db, 'orders');
+  //   addDoc(query, order)
+  //     .then(({ id }) => {
+  //       console.log(id)
+  //       updateStockProducts();
+  //       alert('Gracias por tu compra')
+  //     })
+  //     .catch(() =>
+  //       alert('Tu compra no fue realizada. Intenta mas tarde')
+  //     );
+  // };
 
-  const updateStockProducts = () => {
-    cart.forEach((product) => {
-      const queryUpdate = doc(db, 'items', product.id);
-      updateDoc(queryUpdate, {
-        categoryId: product.categoryId,
-        parrafo: product.parrafo,
-        image: product.image,
-        price: product.price,
-        tittle: product.tittle,
-        stock: product.stock - product.quantity,
-      })
-        .then(() => {
-          if (cart[cart.length - 1].id === product.id) {
-            clear();
-            navigate('/');
-          }
-        })
-        .catch(() => {
-          console.log('Error al actualizar stock');
-        });
-    });
-  };
+  // const updateStockProducts = () => {
+  //   cart.forEach((product) => {
+  //     const queryUpdate = doc(db, 'items', product.id);
+  //     updateDoc(queryUpdate, {
+  //       categoryId: product.categoryId,
+  //       parrafo: product.parrafo,
+  //       image: product.image,
+  //       price: product.price,
+  //       tittle: product.tittle,
+  //       stock: product.stock - product.quantity,
+  //     })
+  //       .then(() => {
+  //         if (cart[cart.length - 1].id === product.id) {
+  //           clear();
+  //           navigate('/');
+  //         }
+  //       })
+  //       .catch(() => {
+  //         console.log('Error al actualizar stock');
+  //       });
+  //   });
+  // };
 
 
   // Firebase ----------------------------------------------
@@ -110,7 +109,7 @@ const Cart = () => {
 
             <button onClick={() => clear()} className='boton-agregarCart2'>Vaciar carrito</button>
 
-            <Link to={'/finalizarcompra'}><button onClick={createOrder} className='boton-agregarCart'>Finalizar comprar</button></Link>
+            <Link to={'/finalizarcompra'}><button /*onClick={createOrder}*/ className='boton-agregarCart'>Finalizar comprar</button></Link>
 
           </div>
         </>

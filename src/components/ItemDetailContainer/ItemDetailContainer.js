@@ -56,7 +56,7 @@ const ItemDetailContainer = () => {
       {product ? (
         <ItemDetail product={product} />
       ) : (
-        <h2>Obteniendo el detalle...</h2>
+        <h2 style={{textAlign: 'center', margin: '80px'}}>Obteniendo el detalle...</h2>
       )}
     </div>
   );

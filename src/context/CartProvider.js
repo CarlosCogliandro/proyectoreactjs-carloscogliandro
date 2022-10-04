@@ -34,17 +34,17 @@ export const CartProvider = ({ children }) => {
     });
   }
 
-  const itemsEliminados = () => {
-    toast.info('Carrito Vacio', {
-      position: "top-center",
-      autoClose: 3000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: true,
-      progress: 0,
-    });
-  }
+  // const itemsEliminados = () => {
+  //   toast.info('Carrito Vacio', {
+  //     position: "top-center",
+  //     autoClose: 3000,
+  //     hideProgressBar: true,
+  //     closeOnClick: true,
+  //     pauseOnHover: false,
+  //     draggable: true,
+  //     progress: 0,
+  //   });
+  // }
 
   const itemAgregado = (item) => {
     toast.success(`Has agregado ${item.tittle} al carrito`, {
@@ -76,7 +76,7 @@ export const CartProvider = ({ children }) => {
 
   const clear = () => {
     setCart([]);
-    itemsEliminados();
+    // itemsEliminados();
   };
 
   const removeItem = (productId, item) => {
