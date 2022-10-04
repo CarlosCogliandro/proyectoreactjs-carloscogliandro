@@ -17,6 +17,7 @@ Es un Ecommerce de productos de uso cotidiano, como por ejemplo electrodomestico
 
 - [React-Bootstrap](https://react-bootstrap.github.io/)
 - [React-router-dom](https://v5.reactrouter.com/)
+- [Toastify](https://fkhadra.github.io/react-toastify/introduction/)
 - [Sweet Alert](https://sweetalert.js.org/)
 
 ## Para mas informacion
