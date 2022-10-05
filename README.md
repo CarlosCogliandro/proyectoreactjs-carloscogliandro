@@ -19,6 +19,7 @@ Es un Ecommerce de productos de uso cotidiano, como por ejemplo electrodomestico
 - [React-router-dom](https://v5.reactrouter.com/)
 - [Toastify](https://fkhadra.github.io/react-toastify/introduction/)
 - [Sweet Alert](https://sweetalert.js.org/)
+- [React Spinners](https://www.davidhu.io/react-spinners/)
 
 ## Para mas informacion
 
