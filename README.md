@@ -1,17 +1,9 @@
 # Tienda E-Commerce por CARLOS COGLIANDRO
 
 
-<<<<<<< HEAD
 https://user-images.githubusercontent.com/102234040/193945440-30e0fd6c-7af2-4976-beaa-ccf696307f58.mp4
 
 
-=======
-
-https://user-images.githubusercontent.com/102234040/193945440-30e0fd6c-7af2-4976-beaa-ccf696307f58.mp4
-
-
-
->>>>>>> 139302a5aa7a3c8392e02f24f51f2577978ba7d6
 Este proyecto esta realizado en React y Bootstrap, es el proyecto final de el curso de React dictado en [CoderHouse] 
 (https://www.coderhouse.com)
 
@@ -24,11 +16,8 @@ Es un Ecommerce de productos de uso cotidiano, como por ejemplo electrodomestico
 - [Toastify](https://fkhadra.github.io/react-toastify/introduction/)
 - [Sweet Alert](https://sweetalert.js.org/)
 - [React Spinners](https://www.davidhu.io/react-spinners/)
-<<<<<<< HEAD
 
 react-spinners
-=======
->>>>>>> 139302a5aa7a3c8392e02f24f51f2577978ba7d6
 
 ## Para mas informacion
 
@@ -38,8 +27,4 @@ y este es el link del proyecto React en Vercel: https://proyectoreactjs-carlosco
 ## Agradecimientos:
 
 Primero a Juan Magos (Profesor del curso) por brindarnos todos sus conocimientos sobre React JS y tomarse su tiempo, dedicacion y paciencia en que podamos aprender.
-<<<<<<< HEAD
 Segundo, al tutor Julian Bragazzi por la paciencia y las respuestas inmediatas a cualquier duda que me surgia. El mismo iniciando videoconferencias para solucionar cualquier inquietud que tuve.
-=======
-Segundo, al tutor Julian Bragazzi por la paciencia y las respuestas inmediatas a cualquier duda que me surgia. El mismo iniciando videoconferencias para solucionar cualquier inquietud que tuve.
->>>>>>> 139302a5aa7a3c8392e02f24f51f2577978ba7d6
