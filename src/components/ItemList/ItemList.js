@@ -1,5 +1,5 @@
 import Item from "../Item/Item";
-import header from '../images/header.png'
+import banner from '../images/banner1.png'
 import './header-styles.css'
 
 const ItemList = ({ lista }) => {
@@ -7,7 +7,7 @@ const ItemList = ({ lista }) => {
     return (
         <div>
             <header className='header'>
-                <img src={header} alt="header" className='imgheader' />
+                <img src={banner} alt="header" className='imgheader' />
             </header>
 
             <div className="tarjetas"> {

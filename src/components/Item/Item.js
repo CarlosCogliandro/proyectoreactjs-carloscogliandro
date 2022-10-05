@@ -25,3 +25,5 @@ const Item = ({ tittle, image, price, id }) => {
 };
 
 export default Item; 
+
+

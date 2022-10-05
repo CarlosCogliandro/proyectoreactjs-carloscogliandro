@@ -193,8 +193,6 @@ export default CheckOut;
 
 
 
-
-
 // import { useState, useContext } from "react";
 // import { CartContext } from "../../context/CartContext";
 // import { getFirestore, collection, addDoc } from "firebase/firestore";

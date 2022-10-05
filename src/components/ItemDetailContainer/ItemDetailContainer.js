@@ -3,6 +3,7 @@ import ItemDetail from "../ItemDetail/ItemDetail";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
+import {RingLoader} from 'react-spinners'
 
 
 const ItemDetailContainer = () => {
@@ -53,10 +54,12 @@ const ItemDetailContainer = () => {
 
   return (
     <div>
+      
       {product ? (
         <ItemDetail product={product} />
       ) : (
-        <h2 style={{textAlign: 'center', margin: '80px'}}>Obteniendo el detalle...</h2>
+        <RingLoader color="#6cacef" cssOverride={{margin:'80px', left: '40%',}}/>
+
       )}
     </div>
   );
