@@ -7,6 +7,7 @@ import chip from '../images/chip.png'
 import './checkout-styles.css'
 import swal from "sweetalert"
 
+
 const CheckOut = () => {
 
     const navigate = useNavigate();
@@ -45,7 +46,12 @@ const CheckOut = () => {
             .then(({ id }) => {
                 console.log(id)
                 updateStockProducts();
-                swal('Gracias por tu compra! Su ID es:', id, "success");
+                swal({
+                    title: "Gracias por tu compra!",
+                    text: `Su N° de orden de compra es: ${id} `,
+                    icon: "success",
+                    button: "OK",
+                  })
             })
             .catch(() =>
                 alert('Tu compra no fue realizada. Intenta mas tarde')
