@@ -14,33 +14,24 @@ const CheckOut = () => {
 
     const { cart, clear, totalQuantity } = useContext(CartContext);
 
-    
-// -------  FIREBASE
+
+    // -------  FIREBASE
 
 
     const [order, setOrder] = useState({
         buyer: {
             name: '',
-            phone: '',
+            phone: 0,
             email: '',
         },
-        item: [],
-        total: 0,
-        date: '',
+        item: cart,
+        total: cart.reduce((acc, item) => acc + item.price * item.quantity, 0),
+        date: moment().format('DD/MM/YYYY, h:mm:ss a'),
     });
 
     const db = getFirestore();
 
     const createOrder = () => {
-        setOrder((currentOrder) => {
-            return {
-                ...currentOrder,
-                items: cart,
-                total: cart.reduce((acc, item) => acc + item.price * item.quantity, 0),
-                date: moment().format('DD/MM/YYYY, h:mm:ss a'),
-            }
-        });
-
         const query = collection(db, 'orders');
         addDoc(query, order)
             .then(({ id }) => {
@@ -51,10 +42,15 @@ const CheckOut = () => {
                     text: `Su N° de orden de compra es: ${id} `,
                     icon: "success",
                     button: "OK",
-                  })
+                });
             })
             .catch(() =>
-                alert('Tu compra no fue realizada. Intenta mas tarde')
+                swal({
+                    title: "Error",
+                    text: 'Tuvimos un error, Intente mas tarde',
+                    icon: "error",
+                    button: "OK",
+                })
             );
     };
 
@@ -88,12 +84,11 @@ const CheckOut = () => {
                 ...order.buyer,
                 [evt.target.name]: evt.target.value,
             }
-        })
-
+        });
     }
 
 
-// -------  FIREBASE
+    // -------  FIREBASE
 
 
 
@@ -114,7 +109,7 @@ const CheckOut = () => {
                     ))}
                     <p className='total_checkout'>Total: $ {totalQuantity()}</p>
                 </div>
-                
+
                 <div className="tarjeta_y_datos">
                     <div className="datos_compra">
                         <div>
@@ -137,7 +132,7 @@ const CheckOut = () => {
 
                         <div className="chip_numero">
                             <img className="chip" src={chip} />
-                            <div>    
+                            <div>
                                 <label for="">Numero de tarjeta: </label>
                                 <input type="number" name="" id="" placeholder="0000 - 0000 - 0000 - 0000" />
                             </div>
@@ -145,7 +140,7 @@ const CheckOut = () => {
 
                         <div>
                             <label for="">Titular: </label>
-                            <input type="text" name="" id="" placeholder="JUAN PEREZ" />
+                            <input type="text" name="" id="" placeholder="Juan Perez" />
                         </div>
 
                         <div>
