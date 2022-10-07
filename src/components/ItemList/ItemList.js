@@ -15,7 +15,7 @@ const ItemList = ({ lista }) => {
                     <Item
                         key={product.id}
                         tittle={product.tittle}
-                        price={product.price}
+                        price={product.price.toLocaleString("es-AR", {style: "currency", currency: "ARS"})}
                         image={product.image}
                         id={product.id}
                     />

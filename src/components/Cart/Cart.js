@@ -1,13 +1,12 @@
 import './cart-styles.css'
 import { useContext, useState } from "react"
 import { CartContext } from "../../context/CartContext"
-import { Link, useNavigate } from "react-router-dom"
-import { collection, addDoc, getFirestore, updateDoc, doc } from 'firebase/firestore'
-import moment from 'moment'
+import { Link} from "react-router-dom"
+
 
 
 const Cart = () => {
-
+ 
   const { cart, removeItem, clear, totalQuantity } = useContext(CartContext);
 
   return (
@@ -27,7 +26,7 @@ const Cart = () => {
 
               <div className='detalles2'>
                 <h3 className='detalleCart-item'>{item.tittle}</h3>
-                <p className='detalleCart-item'>$ {item.price}</p>
+                <p className='detalleCart-item'>{item.price.toLocaleString("es-AR", {style: "currency", currency: "ARS"})}</p>
                 <p className='detalleCart-item'>Cantidad: {item.quantity}</p>
               </div>
               <button onClick={() => removeItem(item.id, item)} className='boton-eliminar'>X</button>
@@ -35,7 +34,7 @@ const Cart = () => {
             </div>
           ))}
 
-          <p className='total'>Total: $ {totalQuantity()}</p>
+          <p className='total'>Total: {totalQuantity().toLocaleString("es-AR", {style: "currency", currency: "ARS"})}</p>
 
           <div className='botones-finalizacion'>
 

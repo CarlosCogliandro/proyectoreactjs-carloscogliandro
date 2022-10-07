@@ -13,7 +13,7 @@ const Item = ({ tittle, image, price, id }) => {
 
         <div>
           <h2>{tittle}</h2>
-          <h4>${price}</h4>
+          <h4>{price.toLocaleString("es-AR", {style: "currency", currency: "ARS"})}</h4>
           <Link to={`/detail/${id}`} style={{ textDecoration: 'none', color: 'black'}}>
             <button className="btn-detalles">Detalles</button>
           </Link>

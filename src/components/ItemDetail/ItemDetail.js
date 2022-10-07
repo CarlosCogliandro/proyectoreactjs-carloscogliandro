@@ -28,7 +28,7 @@ const ItemDetail = ({ product }) => {
       </div>
       <div className='detalles'>
         <h2>{product.tittle}</h2>
-        <h3>${product.price}</h3>
+        <h3>{product.price.toLocaleString("es-AR", {style: "currency", currency: "ARS"})}</h3>
         <p>{product.parrafo}</p>
         <h5>Stock: {product.stock}</h5>
         {hasAddedProductToCart ?

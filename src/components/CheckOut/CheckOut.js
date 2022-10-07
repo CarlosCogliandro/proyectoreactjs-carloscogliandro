@@ -101,13 +101,13 @@ const CheckOut = () => {
                             <div className='detalles2_checkout'>
                                 <img src={item.image} alt={item.tittle} className='img-cart_checkout' />
                                 <h3 className='detalleCart-item_checkout'>{item.tittle}</h3>
-                                <p className='detalleCart-item_checkout'>$ {item.price}</p>
+                                <p className='detalleCart-item_checkout'>{item.price.toLocaleString("es-AR", {style: "currency", currency: "ARS"})}</p>
                                 <p className='detalleCart-item_checkout'>Cantidad: {item.quantity}</p>
                             </div>
 
                         </div>
                     ))}
-                    <p className='total_checkout'>Total: $ {totalQuantity()}</p>
+                    <p className='total_checkout'>Total: {totalQuantity().toLocaleString("es-AR", {style: "currency", currency: "ARS"})}</p>
                 </div>
 
                 <div className="tarjeta_y_datos">
