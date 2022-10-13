@@ -128,7 +128,7 @@ const CheckOut = () => {
    
                 {cart.length === 0 ? (
                     <>
-                        <RingLoader color="#6cacef" cssOverride={{ margin: '80px', left: '40%', }} />
+                        <RingLoader color="#6cacef" cssOverride={{ margin: '80px'}} />
                     </>) : (
 
                     <div className="tarjeta_y_datos">
@@ -180,7 +180,6 @@ const CheckOut = () => {
                             </div>
 
                             <button className="boton_pago_checkout" type="submit">Realizar Pago</button>
-
                         </form>
                     </div>)}
             </div>
