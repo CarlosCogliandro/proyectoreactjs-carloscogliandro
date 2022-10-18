@@ -113,12 +113,15 @@
 
 .datos_compra{
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
   width: auto;
   padding: 30px;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  gap: 5px;
 }
 
+.datos_compra1{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  }

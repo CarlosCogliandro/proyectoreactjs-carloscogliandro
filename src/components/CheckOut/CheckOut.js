@@ -22,8 +22,9 @@ const CheckOut = () => {
     const [order, setOrder] = useState({
         buyer: {
             name: '',
-            phone: 0,
+            phone: '',
             email: '',
+            confirmEmail:'',
         },
         item: cart,
         total: cart.reduce((acc, item) => acc + item.price * item.quantity, 0),
@@ -78,17 +79,31 @@ const CheckOut = () => {
     };
 
 
-    // Evento para que complete los campos obligatoriamente
-    
+    // Evento para que complete los campos obligatoriamente y el email sea el mismo
+
     const buy = (event) => {
         event.preventDefault();
         if (!order.buyer.name || !order.buyer.email || !order.buyer.phone) {
-            swal({
+            return swal({
                 title: "Complete los campos",
                 icon: "warning",
                 button: "OK",
-            });
-        } else {
+            })
+                .then(() => {
+                    return;
+                });
+        }
+        if (order.buyer.email !== order.buyer.confirmEmail) {
+            return swal({
+                title: "El email no concuerda con el ingresado",
+                icon: "error",
+                button: "OK",
+            })
+                .then(() => {
+                    return;
+                });
+        }
+        else {
             createOrder();
             clear();
         }
@@ -112,23 +127,23 @@ const CheckOut = () => {
     return (
         <div className="container_checkout">
             <div className="checkout">
-                    {cart.map((item) => (
-                        <div className="productos_checkout">
-                            <div key={item.id} className='detalles1_checkout'>
-                                <div className='detalles2_checkout'>
-                                    <img src={item.image} alt={item.tittle} className='img-cart_checkout' />
-                                    <h3 className='detalleCart-item_checkout'>{item.tittle}</h3>
-                                    <p className='detalleCart-item_checkout'>{item.price.toLocaleString("es-AR", { style: "currency", currency: "ARS" })}</p>
-                                    <p className='detalleCart-item_checkout'>Cantidad: {item.quantity}</p>
-                                </div>
+                {cart.map((item) => (
+                    <div className="productos_checkout">
+                        <div key={item.id} className='detalles1_checkout'>
+                            <div className='detalles2_checkout'>
+                                <img src={item.image} alt={item.tittle} className='img-cart_checkout' />
+                                <h3 className='detalleCart-item_checkout'>{item.tittle}</h3>
+                                <p className='detalleCart-item_checkout'>{item.price.toLocaleString("es-AR", { style: "currency", currency: "ARS" })}</p>
+                                <p className='detalleCart-item_checkout'>Cantidad: {item.quantity}</p>
                             </div>
-                            <p className='total_checkout'>Total: {totalQuantity().toLocaleString("es-AR", { style: "currency", currency: "ARS" })}</p>
                         </div>
-                    ))}
-   
+                        <p className='total_checkout'>Total: {totalQuantity().toLocaleString("es-AR", { style: "currency", currency: "ARS" })}</p>
+                    </div>
+                ))}
+
                 {cart.length === 0 ? (
                     <>
-                        <RingLoader color="#6cacef" cssOverride={{ margin: '80px'}} />
+                        <RingLoader color="#6cacef" cssOverride={{ margin: '80px' }} />
                     </>) : (
 
                     <div className="tarjeta_y_datos">
@@ -163,24 +178,30 @@ const CheckOut = () => {
                             </div>
                         </div>
 
-                        <form className="datos_compra" onSubmit={buy}>
-                            <div>
-                                <label>Nombre: </label>
-                                <input name='name' type="text" placeholder="Juan Perez" value={order.buyer.name} onChange={handleInputChange} />
+                        <form className="datos_compra">
+                            <div className="datos_compra1">
+                                <label>Nombre:</label>
+                                <input name='name' type="text" placeholder="Juan Perez" value={order.buyer.name} onChange={handleInputChange} required/>
                             </div>
 
-                            <div>
-                                <label>Telefono: </label>
-                                <input name='phone' type="number" placeholder="633-165-988" value={order.buyer.phone} onChange={handleInputChange} />
+                            <div className="datos_compra1">
+                                <label>Telefono:</label>
+                                <input name='phone' type="number" placeholder="633-165-988" value={order.buyer.phone} onChange={handleInputChange} required/>
                             </div>
 
-                            <div>
-                                <label>E-mail: </label>
-                                <input name='email' type="email" placeholder="TuEmail@email.com" value={order.buyer.email} onChange={handleInputChange} />
+                            <div className="datos_compra1">
+                                <label>E-mail:</label>
+                                <input name='email' type="email" placeholder="TuEmail@email.com" value={order.buyer.email} onChange={handleInputChange} required/>
                             </div>
 
-                            <button className="boton_pago_checkout" type="submit">Realizar Pago</button>
+                            <div className="datos_compra1">
+                                <label>Confirmar E-mail:</label>
+                                <input name='confirmEmail' type="email" placeholder="TuEmail@email.com" value={order.buyer.confirmEmail} onChange={handleInputChange} required />
+                            </div>
+
+                            
                         </form>
+                        <button className="boton_pago_checkout" onClick={buy}>Realizar Pago</button>
                     </div>)}
             </div>
         </div>
