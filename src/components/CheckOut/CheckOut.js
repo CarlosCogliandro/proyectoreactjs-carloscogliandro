@@ -79,7 +79,7 @@ const CheckOut = () => {
     };
 
 
-    // Evento para que complete los campos obligatoriamente y el email sea el mismo
+    // Evento para que complete los campos obligatoriamente y el email sea el mismo y contenga simbolo @
 
     const buy = (event) => {
         event.preventDefault();
@@ -93,6 +93,17 @@ const CheckOut = () => {
                     return;
                 });
         }
+        if (!order.buyer.email.includes("@") || !order.buyer.confirmEmail.includes("@")
+          ) {
+            return swal({
+                title: "E-mail incorrecto",
+                icon: "error",
+                button: "OK",
+            })
+              .then(() => {
+                return;
+              });
+          }
         if (order.buyer.email !== order.buyer.confirmEmail) {
             return swal({
                 title: "El email no concuerda con el ingresado",
@@ -198,8 +209,6 @@ const CheckOut = () => {
                                 <label>Confirmar E-mail:</label>
                                 <input name='confirmEmail' type="email" placeholder="TuEmail@email.com" value={order.buyer.confirmEmail} onChange={handleInputChange} required />
                             </div>
-
-                            
                         </form>
                         <button className="boton_pago_checkout" onClick={buy}>Realizar Pago</button>
                     </div>)}
